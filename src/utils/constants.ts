@@ -8,12 +8,12 @@ export enum HTTPMETHODS {
 }
 
 
-export enum BASE_URL {
+export enum BASE_BACKEND_URL {
     LOCAL = 'http://localhost:3000/',
     PRODUCTION = '',
 }
 
-export enum AreaPaths {
+export enum AreaBackendPaths {
     CREATE = 'area',
     DELETE = 'area/',
     UPDATE = 'area/',
@@ -21,14 +21,14 @@ export enum AreaPaths {
     GET_ALL = 'area',
 }
 
-export enum AuthPaths {
-    LOGIN = 'auth/SignIn',
-    REGISTER = 'register/SignUp',
-    LOGOUT = 'auth/SignOut',
-    PROFILE = 'auth/Profile',
+export enum AuthBackendPaths {
+    LOGIN = 'auth/signIn',
+    REGISTER = 'register/signUp',
+    LOGOUT = 'auth/signOut',
+    PROFILE = 'auth/profile',
 }
 
-export enum UserPaths {
+export enum UserBackendPaths {
     CREATE = 'user',
     DELETE = 'user/',
     UPDATE = 'user/',
@@ -36,7 +36,7 @@ export enum UserPaths {
     GET_ALL = 'user',
 }
 
-export enum SurveyPaths {
+export enum SurveyBackendPaths {
     CREATE = 'survey',
     DELETE = 'survey/',
     UPDATE = 'survey/',
