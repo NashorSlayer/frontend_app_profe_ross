@@ -9,6 +9,7 @@ const SignInPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState<string | null>(null)
     const router = useRouter();
+
     const onSubmit = handleSubmit(async (data) => {
         const res = await signIn("credentials", {
             email: data.email,
