@@ -1,24 +1,31 @@
 "use client"
 import ButtonClick from "@/components/ButtonClick";
+import CarouselSpacing from "@/components/CarouselUser";
+import { Card } from "@/components/ui/card";
+//import ButtonClick from "@/components/ButtonClick";
+import { useRouter } from "next/navigation";
 
 const userHomePage = () => {
+
+    const router = useRouter();
+
     return (
         <div className="">
-            <h1 className="text-4xl font-bold text-center mt-10 text-white"
+            <h1 className="text-4xl font-bold text-center mt-10 text-white "
             >User Home Page
             </h1>
             <div className="flex justify-center items-center min-h-screen p-5 space-x-4">
                 <ButtonClick
                     text="Profile"
-                    onClick={() => console.log("Perfil")}
+                    onClick={() => router.push("/user/profile")}
                 />
                 <ButtonClick
                     text="Create Survey"
-                    onClick={() => console.log("Perfil")}
+                    onClick={() => router.push("/user/survey/create")}
                 />
                 <ButtonClick
                     text="See Surveys"
-                    onClick={() => console.log("Perfil")}
+                    onClick={() => router.push("/user/survey")}
                 />
             </div>
         </div>
@@ -26,3 +33,4 @@ const userHomePage = () => {
 }
 
 export default userHomePage;
+
