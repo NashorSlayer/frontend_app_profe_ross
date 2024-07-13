@@ -5,8 +5,7 @@ import NavBar from "@/components/common/NavBar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
-import { Suspense } from "react";
-import Loading from "./loading";
+
 
 const fontSans = FontSans({
   subsets: ["latin"],

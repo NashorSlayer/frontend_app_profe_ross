@@ -1,8 +1,5 @@
 "use client"
 import ButtonClick from "@/components/ButtonClick";
-import CarouselSpacing from "@/components/CarouselUser";
-import { Card } from "@/components/ui/card";
-//import ButtonClick from "@/components/ButtonClick";
 import { useRouter } from "next/navigation";
 
 const userHomePage = () => {
