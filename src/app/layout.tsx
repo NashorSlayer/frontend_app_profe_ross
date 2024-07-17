@@ -5,6 +5,7 @@ import NavBar from "@/components/common/NavBar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/toaster"
 
 
 const fontSans = FontSans({
@@ -43,6 +44,7 @@ export default function RootLayout({
             </ThemeProvider>
           </SessionAuthProvider>
         </main>
+        <Toaster />
       </body>
     </html>
   );

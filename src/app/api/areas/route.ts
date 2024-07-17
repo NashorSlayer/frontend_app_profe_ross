@@ -1,4 +1,3 @@
-import { Area } from "@/types/area.type";
 import { AreaBackendPaths, HTTPMETHODS } from "@/utils/constants";
 
 export const getAreas = async () => {
