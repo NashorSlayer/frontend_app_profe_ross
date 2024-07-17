@@ -1,17 +1,19 @@
 "use client"
-import { AreaPaths, BASE_URL, HTTPMETHODS, UserPaths } from "@/utils/constants";
+import { BASE_BACKEND_URL, HTTPMETHODS, UserBackendPaths } from "@/utils/constants";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 const SignUpPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
+    const LoginPathFront = "/api/auth/signin"
     const onSubmit = handleSubmit(async (data) => {
-        console.log(data);
         if (data.password !== data.confirmPassword) {
             alert("Passwords do not match");
             return;
         }
-        const res = await fetch(BASE_URL.LOCAL + UserPaths.CREATE, {
+        const res = await fetch(BASE_BACKEND_URL.LOCAL + UserBackendPaths.CREATE, {
             method: HTTPMETHODS.POST,
             headers: {
                 "Content-Type": "application/json"
@@ -23,10 +25,13 @@ const SignUpPage = () => {
             })
         });
         if (res.ok) {
-            alert("User created successfully");
+            router.push(LoginPathFront);
+        } else {
+            alert(res.statusText.toString());
         }
-    })
 
+    });
+    console.log(errors)
     return (
         <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
             <form onSubmit={onSubmit} className="w-1/4">
