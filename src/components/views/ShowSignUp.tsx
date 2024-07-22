@@ -7,12 +7,13 @@ const SignUpPage = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const router = useRouter();
-    const LoginPathFront = "/api/auth/signin"
+    const LoginPathFront = "/auth/SignIn"
     const onSubmit = handleSubmit(async (data) => {
         if (data.password !== data.confirmPassword) {
             alert("Passwords do not match");
             return;
         }
+        
         const res = await fetch(BASE_BACKEND_URL.LOCAL + UserBackendPaths.CREATE, {
             method: HTTPMETHODS.POST,
             headers: {
@@ -112,7 +113,9 @@ const SignUpPage = () => {
 
                 <button
                     className="w-full bg-blue-500 text-white p-3 rounded-lg margin-top-4"
-                > Register</button>
+                > 
+                Register
+                </button>
             </form>
         </div>
     );

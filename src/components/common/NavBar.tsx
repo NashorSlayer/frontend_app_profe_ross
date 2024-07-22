@@ -4,9 +4,6 @@ import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import ToggleTheme from "../toggle-theme";
 
-
-
-
 const NavBar: React.FC = async () => {
 
     const session = await getServerSession(authOptions);
@@ -21,13 +18,13 @@ const NavBar: React.FC = async () => {
                     <>
                         <li>
                             <Link
-                                href="/auth/signIn"
+                                href="/auth/SignIn"
                                 className={buttonVariants({ variant: "outline" })}
                             >Login</Link>
                         </li>
                         <li>
                             <Link
-                                href="/auth/signUp"
+                                href="/auth/SignUp"
                                 className={buttonVariants({ variant: "outline" })}
                             >Register</Link>
                         </li>

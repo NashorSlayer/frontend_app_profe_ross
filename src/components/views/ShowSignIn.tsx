@@ -1,5 +1,4 @@
 "use client"
-
 import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -11,7 +10,6 @@ import { toast } from "@/components/ui/use-toast";
 const SignInPage = () => {
     const [loading, setLoading] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [error, setError] = useState<string | null>(null)
     const router = useRouter();
 
     const onSubmit = handleSubmit(async (data) => {
@@ -25,7 +23,8 @@ const SignInPage = () => {
             password: data.password,
             redirect: false
         })
-            .then((res) => {
+            .then(async(res) => {
+                
                 if (res?.status === 200) {
                     router.push("/user");
                     router.refresh();
