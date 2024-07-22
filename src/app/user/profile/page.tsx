@@ -6,7 +6,6 @@ import Loading from '@/app/loading';
 const profilePage = async () => {
 
     const areas = await fetchAreas();
-    console.log("🚀 ~ profilePage ~ areas:", areas)
 
     return (
         <Suspense fallback={<Loading />}>
