@@ -1,4 +1,4 @@
-import { AuthBackendPaths, HTTPMETHODS } from "@/utils/constants";
+import { AuthBackendPaths, HTTPMETHODS, urlBackend } from "@/utils/constants";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -12,7 +12,7 @@ export const authOptions = {
                 password: { label: "Password", type: "password", placeholder: "******" }
             },
             async authorize(credentials, req): Promise<any> {
-                const res = await fetch((`${process.env.NEXT_PUBLIC_BACKEND_URL}` + AuthBackendPaths.LOGIN), {
+                const res = await fetch((`${urlBackend}` + AuthBackendPaths.LOGIN), {
                     method: HTTPMETHODS.POST,
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -21,7 +21,6 @@ export const authOptions = {
                     })
                 });
                 if (res.status != 200) throw new Error(res.statusText);
-
                 const response = await res.json();
 
                 //USAR JWT DEL BACKEND
@@ -44,7 +43,7 @@ export const authOptions = {
     },
 
     pages: {
-        signIn: '/auth/signIn',
+        signIn: '/signIn',
     },
 
 };

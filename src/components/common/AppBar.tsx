@@ -24,13 +24,13 @@ const AppBar: React.FC = async () => {
                             <>
                                 <li>
                                     <Link
-                                        href="/auth/SignIn"
+                                        href="/signIn"
                                         className={buttonVariants({ variant: "outline" })}
                                     >Login</Link>
                                 </li>
                                 <li>
                                     <Link
-                                        href="/auth/SignUp"
+                                        href="/signUp"
                                         className={buttonVariants({ variant: "outline" })}
                                     >Register</Link>
                                 </li>
