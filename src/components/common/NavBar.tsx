@@ -4,15 +4,12 @@ import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import ToggleTheme from "../toggle-theme";
 
-
-
-
 const NavBar: React.FC = async () => {
 
     const session = await getServerSession(authOptions);
 
     return (
-        <nav className="flex justify-between items-center bg-gray-950 text-white px-24 py-3">
+        <nav className="flex justify-between items-center bg-gray-950 text-white px-24 py-2">
             <ToggleTheme />
             <h1 className="text-x1 font-bold">App profesor Ross</h1>
             <Link href="/user/" className={buttonVariants({ variant: "default" })}> Home</Link>
@@ -21,13 +18,13 @@ const NavBar: React.FC = async () => {
                     <>
                         <li>
                             <Link
-                                href="/auth/signIn"
+                                href="/auth/SignIn"
                                 className={buttonVariants({ variant: "outline" })}
                             >Login</Link>
                         </li>
                         <li>
                             <Link
-                                href="/auth/signUp"
+                                href="/auth/SignUp"
                                 className={buttonVariants({ variant: "outline" })}
                             >Register</Link>
                         </li>
