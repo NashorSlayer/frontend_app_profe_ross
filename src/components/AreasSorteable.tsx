@@ -22,7 +22,6 @@ const AreasSorteable: React.FC<AreaPanelProps> = ({ areasList }) => {
                     <AreaCard
                         key={area.id}
                         area={area}
-                        title={area.name}
                     />
                 ))
             }

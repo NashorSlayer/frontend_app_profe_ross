@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/common/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster"
+import AppBar from "@/components/common/AppBar";
 
 
 const fontSans = FontSans({
@@ -27,22 +28,24 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
-      )}>
-        <main className="container">
-          <SessionAuthProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <NavBar />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        <main>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SessionAuthProvider>
+              <AppBar />
               {children}
-            </ThemeProvider>
-          </SessionAuthProvider>
+            </SessionAuthProvider>
+          </ThemeProvider>
         </main>
         <Toaster />
       </body>
