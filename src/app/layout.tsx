@@ -6,7 +6,8 @@ import { ThemeProvider } from "@/components/common/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster"
-
+import React, {Suspense} from 'react';
+import Loading from "./loading";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,7 +32,7 @@ export default function RootLayout({
         "min-h-screen bg-background font-sans antialiased",
         fontSans.variable
       )}>
-        <main className="container">
+        <main className="">
           <SessionAuthProvider>
             <ThemeProvider
               attribute="class"
@@ -39,8 +40,10 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
+              <Suspense fallback={<Loading/>}>
               <NavBar />
               {children}
+              </Suspense>
             </ThemeProvider>
           </SessionAuthProvider>
         </main>
