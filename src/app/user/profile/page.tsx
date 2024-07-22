@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import CreateAreasSurvey from '@/components/CreateAreasSurvey';
-import Loading from '../loading';
 import { fetchAreas } from '@/app/api/areas/route';
+import Loading from '@/app/loading';
 
 const profilePage = async () => {
 
