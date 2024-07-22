@@ -1,27 +1,16 @@
 "use client"
-import AreasSorteable from "@/components/AreasSorteable";
-import InputArea from "@/components/InputArea";
 import { Button } from "@/components/ui/button";
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from "@/components/ui/resizable"
 import { Input } from "@/components/ui/input"
 import { useAreaStore } from "@/store/areaStore";
 import {
-    DndContext,
     KeyboardSensor,
     PointerSensor,
-    closestCorners,
     useSensor,
     useSensors
 } from "@dnd-kit/core";
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
-import { useEffect } from "react";
 import { shallow } from "zustand/shallow";
 import { fetchAreas } from "@/app/api/areas/route";
-import { CreateAreaButton } from "@/components/ButtonsActions";
 import { PlusIcon } from "lucide-react";
 import AreaCard from "@/components/AreaCard";
 
@@ -61,9 +50,6 @@ const CreateSurveyPage = () => {
         }
     }
 
-    const handleSave = () => {
-
-    };
 
     return (
         <div className="w-screen h-screen">
