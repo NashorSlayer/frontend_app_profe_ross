@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import SessionAuthProvider from "@/contexts/SessionProvider";
-import NavBar from "@/components/common/NavBar";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster"
+import AppBar from "@/components/common/AppBar";
 import React, {Suspense} from 'react';
 import Loading from "./loading";
+
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
         fontSans.variable
@@ -41,7 +43,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <Suspense fallback={<Loading/>}>
-              <NavBar />
+              <AppBar />
               {children}
               </Suspense>
             </ThemeProvider>

@@ -1,16 +1,12 @@
 
+export const urlBackend = `${process.env.NEXT_PUBLIC_BACKEND_URL}`
+
 export enum HTTPMETHODS {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
-    UPDATE = 'UPDATE',
+    PATCH = 'PATCH',
     DELETE = 'DELETE',
-}
-
-
-export enum BASE_BACKEND_URL {
-    LOCAL = 'http://localhost:3000/',
-    PRODUCTION = '',
 }
 
 export enum AreaBackendPaths {

@@ -7,6 +7,7 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable"
+import { Input } from "@/components/ui/input"
 import { useAreaStore } from "@/store/areaStore";
 import {
     DndContext,
@@ -19,15 +20,19 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import { useEffect } from "react";
 import { shallow } from "zustand/shallow";
-import { getAreas } from "@/app/api/areas/route";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { AreaInput } from "@/types/area.type";
+import { fetchAreas } from "@/app/api/areas/route";
+import { CreateAreaButton } from "@/components/ButtonsActions";
+import { PlusIcon } from "lucide-react";
+import AreaCard from "@/components/AreaCard";
+
+
+const area = {
+    id: '1',
+    name: 'Area 1',
+}
+
 
 const CreateSurveyPage = () => {
-    useEffect(() => {
-        getAreasFromBack();
-    }, [])
-
     const { areas, } = useAreaStore(
         (state) => ({
             areas: state.areas
@@ -36,7 +41,7 @@ const CreateSurveyPage = () => {
     const { setAreas, getAreaPos } = useAreaStore();
 
     const getAreasFromBack = async () => {
-        const res = await getAreas();
+        const res = await fetchAreas();
         setAreas(res);
     }
 
@@ -61,53 +66,70 @@ const CreateSurveyPage = () => {
     };
 
     return (
-        <ResizablePanelGroup
-            className="justify-center rounded-lg border"
-            direction="horizontal">
-            <ResizablePanel
-                className="flex-col justify-center "
-                defaultSize={30}
-            >
-                <Button
-                    onClick={handleSave}
-                    variant="outline"
-                    className=""
-                >Save</Button>
-                <Button
-                    variant="secondary"
-                    onClick={handleSave}
-                    className=""
-                >Preview</Button>
-                <InputArea />
-            </ResizablePanel>
-            <ResizableHandle
-                withHandle={false}
-            />
-            <ResizablePanel
-                className="items-center justify-center rounded-lg border"
-                defaultSize={50}
-            >
-                <DndContext
-                    sensors={sensors}
-                    onDragEnd={handleDragEnd}
-                    collisionDetection={closestCorners}
-                >
-                    <AreasSorteable areasList={areas} />
-                </DndContext>
-            </ResizablePanel>
-            <ResizableHandle
-                withHandle={false} />
-            <ResizablePanel
-                defaultSize={20}
-                className="flex justify-center"
-            >
-                <Button
-                    onClick={handleSave}
-                    className=""
-                >Enable Survey</Button>
-            </ResizablePanel>
-        </ResizablePanelGroup>
+        <div className="w-screen h-screen">
+            <div className="flex h-3/4">
+                <div className="flex flex-col w-1/3">
+                    <Button
+                        size={"lg"}
+                        className=" border"
+                        variant={"default"}
+                    >
+                        Save
+                    </Button>
+                    <Button
+                        size={"lg"}
+                        className=" border"
+                        variant={"default"}
+                    >
+                        Preview
+                    </Button>
+                </div>
+                <div className="flex flex-col w-1/3">
+                    <div className="flex">
+                        <Input
+                            type="text"
+                            placeholder="Enter the title of your survey"
+                        />
+                        <Button>
+                            Title
+                            <PlusIcon />
+                        </Button>
+                    </div>
+                    <div className="">
+                        <AreaCard
+                            area={area}
+                        />
+                    </div>
+                </div>
+                <div className="w-1/3 mx-10">
+                    <Button
+                        size={"lg"}
+                        className=" border"
+                        variant={"default"}
+                    >
+                        Enable
+                    </Button>
+                </div>
+            </div>
+            <div className="flex h-1/4 space-x-96">
+                <Input
+                    placeholder="enter a brief description about your survey "
+                    className="w-1/3 ml-10"
+                    maxLength={100}
+                    minLength={5}
+                />
+                <Input
+                    placeholder="Enter time (must be number of month/year) or maybe enter date"
+                    className="w-1/3 ml-10"
+                    maxLength={100}
+                    minLength={5}
+                />
+            </div>
+        </div>
+
     )
 };
 
 export default CreateSurveyPage;
+
+

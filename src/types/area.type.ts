@@ -1,9 +1,5 @@
 
-export interface AreaInput {
-    name: string
-}
-
-export interface Area {
+export type Area = {
     id: string;
     name: string;
 }

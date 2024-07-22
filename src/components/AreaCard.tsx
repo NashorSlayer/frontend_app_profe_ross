@@ -1,18 +1,17 @@
 "use client"
 import React from 'react'
-import { Card, CardHeader, CardTitle } from './ui/card';
 import { useSortable } from '@dnd-kit/sortable';
 import { Area } from '@/types/area.type';
 import { CSS } from '@dnd-kit/utilities';
-import { useStore } from 'zustand';
+import { DeleteAreaButon } from './AreaDelete';
+import { AreaEdit } from './AreaEdit';
 
 
 interface AreaCardProps {
-    title: string;
     area: Area;
 }
 
-const AreaCard: React.FC<AreaCardProps> = ({ title, area }) => {
+const AreaCard: React.FC<AreaCardProps> = ({ area }) => {
 
     const {
         attributes,
@@ -29,17 +28,40 @@ const AreaCard: React.FC<AreaCardProps> = ({ title, area }) => {
     }
 
     return (
-        <Card
-            style={style}
-            {...attributes}
-            {...listeners}
-            ref={setNodeRef}
-            className='flex justify-center'>
-            <CardHeader>
-                <CardTitle>{title}</CardTitle>
-            </CardHeader>
-        </Card>
+        <div
+            className='w-2/3 bg-slate-400 text-white flex items-center 
+            justify-between rounded-lg shadow-md my-3 mx-auto px-3 
+            dark:bg-white dark:text-black scale-90'
+        >
+            <div className='p-3'>
+                <h1>{area.name}</h1>
+            </div>
+            <div className='flex justify-end gap-2 '>
+                <AreaEdit area={area} />
+                <DeleteAreaButon id={area.id} />
+            </div>
+        </div>
+
     )
 }
+
+
+{/* <div
+    style={style}
+    {...attributes}
+    {...listeners}
+    ref={setNodeRef}
+    className='w-2/3 bg-slate-400 text-white flex items-center 
+justify-between rounded-lg shadow-md my-3 mx-auto px-3 
+dark:bg-white dark:text-black scale-90'
+>
+    <div className='p-3'>
+        <h1>{area.name}</h1>
+    </div>
+    <div className='flex justify-end gap-2 '>
+        <UpdateAreaButon id={area.id} />
+        <DeleteAreaButon id={area.id} />
+    </div>
+</div> */}
 
 export default AreaCard;
