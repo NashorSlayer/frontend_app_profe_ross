@@ -7,6 +7,7 @@ import { revalidatePath } from 'next/cache';
 
 export const fetchAreas = async () => {
     try {
+        console.log(`${urlBackend}` + AreaBackendPaths.GET_ALL)
         const res = await fetch((`${urlBackend}` + AreaBackendPaths.GET_ALL), {
             method: HTTPMETHODS.GET,
             headers: { "Content-Type": "application/json" },
