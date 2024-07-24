@@ -15,10 +15,9 @@ import { Input } from "@/components/ui/input"
 import { IconButton, Tooltip } from '@mui/material'
 import AddBox from '@mui/icons-material/AddBox'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { Area } from '@/types/area.type'
+import { Area } from '@/types/types'
 import { createArea } from '@/app/api/areas/route'
 import { toast } from '@/components/ui/use-toast'
-import AlertDestructive from './AlertMessageDestructive'
 
 const AreaCreate = () => {
     const [loading, setLoading] = useState(false);
@@ -51,23 +50,21 @@ const AreaCreate = () => {
     }
     return (
         <Dialog>
-            <div>
-                <div className='flex justify-between bg-white text-black px-3 '>
-                    <h1 className='font-bold py-3 text-2xl  '>Area List</h1>
-                    <DialogTrigger asChild>
-                        <Tooltip className='rounded gap-2' title="Add Area" >
-                            <IconButton >
-                                <p> Add Area</p>
-                                <AddBox />
-                            </IconButton>
-                        </Tooltip>
-                    </DialogTrigger>
-                </div>
+            <div className='flex justify-between w-full border bg-white text-black px-3'
+            >
+                <h1 className='font-bold py-3 text-2xl  '>Area List</h1>
+                <DialogTrigger asChild>
+                    <Tooltip className='rounded gap-2' title="Add Area" >
+                        <IconButton >
+                            <p> Add Area</p>
+                            <AddBox />
+                        </IconButton>
+                    </Tooltip>
+                </DialogTrigger>
             </div>
             <DialogContent className="sm:max-w-[425px]">
                 <form onSubmit={handleSubmit(onSubmit)} >
                     <DialogHeader>
-
                         <DialogTitle>New Area</DialogTitle>
                         <DialogDescription>
                             Create a new Area.
