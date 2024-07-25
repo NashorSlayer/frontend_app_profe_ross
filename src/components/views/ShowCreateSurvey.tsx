@@ -3,7 +3,7 @@ import { Button } from '../ui/button'
 import { Textarea } from '../ui/textarea'
 import Addcircle from '@mui/icons-material/Addcircle'
 import { Area, Survey } from '@/types/types'
-import CreateAreasSurvey from '@/components/CreateAreasSurvey'
+import AreasSelectSurvey from '@/components/AreasSelectSurvey'
 import { ISurveyInput } from '@/interface/survey.interface'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Input } from '../ui/input'
@@ -60,7 +60,7 @@ const ShowCreateSurvey: React.FC<ShowCreateSurveyProps> = ({ areas }) => {
                             <Addcircle />
                         </Button>
                     </div>
-                    <CreateAreasSurvey areas={areas} />
+                    <AreasSelectSurvey areas={areas} />
                 </div>
                 <div className="flex items-center justify-center w-1/3">
                     <Button

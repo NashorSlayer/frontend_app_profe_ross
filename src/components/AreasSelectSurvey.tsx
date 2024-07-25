@@ -7,7 +7,7 @@ interface CreateAreasSurveyProps {
     areas: Area[]
 }
 
-const CreateAreasSurvey: React.FC<CreateAreasSurveyProps> = ({ areas }) => {
+const AreasSelectSurvey: React.FC<CreateAreasSurveyProps> = ({ areas }) => {
 
     return (
         < div className='flex flex-col rounded-md border-4 border-gray-200 
@@ -27,4 +27,4 @@ const CreateAreasSurvey: React.FC<CreateAreasSurveyProps> = ({ areas }) => {
     )
 }
 
-export default CreateAreasSurvey;
+export default AreasSelectSurvey;

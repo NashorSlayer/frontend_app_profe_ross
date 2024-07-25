@@ -18,6 +18,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { Area } from '@/types/types'
 import { createArea } from '@/app/api/areas/route'
 import { toast } from '@/components/ui/use-toast'
+import AreasSearcher from './AreaSearcher'
 
 const AreaCreate = () => {
     const [loading, setLoading] = useState(false);
@@ -52,6 +53,8 @@ const AreaCreate = () => {
         <Dialog>
             <div className='flex justify-between w-full border bg-white text-black px-3'
             >
+                <div>
+                </div>
                 <h1 className='font-bold py-3 text-2xl  '>Area List</h1>
                 <DialogTrigger asChild>
                     <Tooltip className='rounded gap-2' title="Add Area" >
