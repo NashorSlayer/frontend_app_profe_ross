@@ -1,6 +1,6 @@
 "use client"
 import { signUpFetch } from "@/app/api/auth/register/route";
-import { ISignUpForm } from "@/interface/area.interface";
+import { ISignUpForm } from "@/interface/auth.interface";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast";

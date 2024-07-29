@@ -6,7 +6,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
-import { ISignInForm } from "@/interface/area.interface";
+import { ISignInForm } from "@/interface/auth.interface";
 
 const SignInPage = () => {
     const [loading, setLoading] = useState(false);
