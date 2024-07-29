@@ -14,11 +14,11 @@ export type Survey = {
     id: string
     title: string
     description: string
-    time_range_start: Date
-    time_range_end: Date
-    answer_time_start: Date
-    answer_time_end: Date
+    time_range_start: string
+    time_range_end: string
+    answer_time_start: string
+    answer_time_end: string
     disabled: boolean
     user: User
-    areas: Area[]
+    areas?: Area[]
 }

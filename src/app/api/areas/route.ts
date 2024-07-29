@@ -1,5 +1,5 @@
 "use server"
-import { Area } from "@/types/area.type";
+import { Area } from "@/types/types";
 import { AreaBackendPaths, HTTPMETHODS, urlBackend } from "@/utils/constants";
 import { revalidatePath } from 'next/cache';
 
